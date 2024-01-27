@@ -1,0 +1,71 @@
+// Base size
+$base-size: 18px;
+
+html {
+  font-size: $base-size;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+}
+
+.container-fluid {
+  display: flex;
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.justify-content-start {
+  justify-content: flex-start;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-space-between {
+  justify-content: space-between;
+}
+
+.justify-content-space-around {
+  justify-content: space-around;
+}
+
+.align-items-start {
+  align-items: flex-start;
+}
+
+.align-items-end {
+  align-items: flex-end;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.align-items-baseline {
+  align-items: baseline;
+}
+
+.align-items-stretch {
+  align-items: stretch;
+}
+
+@include col-helper();
+
+$sizes: 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5;
+@include space-helper('margin', 'm', $sizes);
+@include space-helper('padding', 'p', $sizes);

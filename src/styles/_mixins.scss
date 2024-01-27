@@ -1,0 +1,21 @@
+// Space helpers
+@mixin space-helper($property, $prefix, $sizes) {
+  @each $size in $sizes {
+    $index: calc(index($sizes, $size) - 1);
+    .#{$prefix}-#{$index} {
+      #{$property}: #{$size}rem;
+    }
+  }
+  .#{$prefix}-auto {
+    #{$property}: auto;
+  }
+}
+
+@mixin col-helper() {
+  @for $i from 1 through 12 {
+    .col-#{$i} {
+      flex: 0 0 calc(100% / 12 * $i);
+      max-width: calc(100% / 12 * $i);
+    }
+  }
+}
