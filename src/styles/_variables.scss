@@ -50,28 +50,17 @@ $color-feedback-info-light: #8acae6;
 $color-feedback-info-lightest: #d8edf7;
 
 // Gradients
-$color-linear-gradient-primary: linear-gradient(
-  90deg,
-  #053542 0%,
-  #00586f 100%
-);
-$color-linear-gradient-secondary: linear-gradient(
-  90deg,
-  #7a6019 0%,
-  #f5c132 100%
-);
-$color-linear-gradient-neutral-01: linear-gradient(
-  90deg,
-  #1a1a1a 0%,
-  #9e9e9e 100%
-);
-$color-linear-gradient-neutral-02: linear-gradient(
-  90deg,
-  #9e9e9e 0%,
-  #ededed 100%
-);
+$color-linear-gradient-primary: linear-gradient(90deg, #053542 0%, #00586f 100%);
+$color-linear-gradient-secondary: linear-gradient(90deg, #7a6019 0%, #f5c132 100%);
+$color-linear-gradient-neutral-01: linear-gradient(90deg, #1a1a1a 0%, #9e9e9e 100%);
+$color-linear-gradient-neutral-02: linear-gradient(90deg, #9e9e9e 0%, #ededed 100%);
 
 // Font
-$font-family: 'Montserrat', sans-serif;
-$secondary-font-family: 'Roboto Slab', sans-serif;
+$font-family: 'Montserrat';
+$secondary-font-family: 'Roboto Slab';
 $font-size-base: 14;
+
+// Buttons
+$button-border-radius: 20;
+$button-padding-x: 32;
+$button-padding-y: 10;

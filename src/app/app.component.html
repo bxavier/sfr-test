@@ -1,9 +1,10 @@
-<div class="container-fluid full-height m-0 m-auto">
-  <div class="container full-height align-items-center">
-    <div class="col-3">
-      <h1 class="heading-01">app works!</h1>
+<div class="flex-wrapper">
+  <app-header></app-header>
+  <div class="container content-wrapper m-0 m-auto">
+    <div class="container-fluid full-height align-items-center">
+      <div class="col-12">
+        <router-outlet />
+      </div>
     </div>
-
-    <router-outlet />
   </div>
 </div>
