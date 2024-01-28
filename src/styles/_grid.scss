@@ -78,6 +78,14 @@ html {
 
 @include col-helper();
 
-$sizes: 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5;
+$sizes: 0, 0.25, 0.5, 0.75, 1, 1.5, 2, 2.5, 3, 3.5, 4;
 @include space-helper('margin', 'm', $sizes);
+@include space-helper('margin-top', 'mt', $sizes);
+@include space-helper('margin-right', 'mr', $sizes);
+@include space-helper('margin-bottom', 'mb', $sizes);
+@include space-helper('margin-left', 'ml', $sizes);
 @include space-helper('padding', 'p', $sizes);
+@include space-helper('padding-top', 'pt', $sizes);
+@include space-helper('padding-right', 'pr', $sizes);
+@include space-helper('padding-bottom', 'pb', $sizes);
+@include space-helper('padding-left', 'pl', $sizes);

@@ -12,28 +12,3 @@ html {
     padding: 0;
   }
 }
-
-.custom-button {
-  font-size: toRem(14);
-  font-weight: 700;
-  padding: toRem($button-padding-y) toRem($button-padding-x);
-  border: none;
-  border-radius: toRem($button-border-radius);
-  color: white;
-  cursor: pointer;
-  background-color: $color-brand-primary-dark;
-  transition: background-color 300ms linear;
-  &:hover {
-    background-color: $color-brand-primary-light;
-    transition: background-color 300ms linear;
-  }
-  &:disabled,
-  &[disabled] {
-    background-color: $color-neutral-lightest;
-    color: $color-neutral-medium;
-    cursor: not-allowed;
-  }
-  &:active {
-    background-color: $color-brand-primary-darkest;
-  }
-}

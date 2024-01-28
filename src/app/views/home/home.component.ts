@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ButtonComponent } from '../../shared/components/button/button.component';
+import { ControlledInputComponent } from '../../shared/components/controlled-input/controlled-input.component';
 
 interface Item {
   id: number;
@@ -17,7 +18,7 @@ interface Item {
   standalone: true,
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
-  imports: [CommonModule, ButtonComponent],
+  imports: [CommonModule, ButtonComponent, ControlledInputComponent],
 })
 export class HomeComponent {
   items: Item[] = [

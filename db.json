@@ -1,0 +1,122 @@
+{
+  "clients": [
+    {
+      "id": 1,
+      "name": "Bruno Xavier 1",
+      "documentNumber": "21520868804",
+      "birthDate": "29/11/1981",
+      "registrationDate": "29/11/2023",
+      "montlyIncome": 1000.0,
+      "email": "bruno@brunoxavier.com.br"
+    },
+    {
+      "id": 2,
+      "name": "Bruno Xavier 2",
+      "documentNumber": "21520868804",
+      "birthDate": "29/11/1981",
+      "registrationDate": "29/11/2023",
+      "montlyIncome": 1000.0,
+      "email": "bruno@brun.xom.br"
+    },
+    {
+      "id": 3,
+      "name": "Bruno Xavier 3",
+      "documentNumber": "21520868804",
+      "birthDate": "29/11/1981",
+      "registrationDate": "29/11/2023",
+      "montlyIncome": 1000.0,
+      "email": "asd@asd.com.br"
+    },
+
+    {
+      "id": 4,
+      "name": "Bruno Xavier 4",
+      "documentNumber": "21520868804",
+      "birthDate": "29/11/1981",
+      "registrationDate": "29/11/2023",
+      "montlyIncome": 1000.0,
+      "email": "bruno4@brunoxavier.com.br"
+    },
+    {
+      "id": 5,
+      "name": "Bruno Xavier 5",
+      "documentNumber": "21520868804",
+      "birthDate": "29/11/1981",
+      "registrationDate": "29/11/2023",
+      "montlyIncome": 1000.0,
+      "email": "bruno5@brunoxavier.com.br"
+    },
+    {
+      "id": 6,
+      "name": "Bruno Xavier 6",
+      "documentNumber": "21520868804",
+      "birthDate": "29/11/1981",
+      "registrationDate": "29/11/2023",
+      "montlyIncome": 1000.0,
+      "email": "bruno6@brunoxavier.com.br"
+    },
+    {
+      "id": 7,
+      "name": "Bruno Xavier 7",
+      "documentNumber": "21520868804",
+      "birthDate": "29/11/1981",
+      "registrationDate": "29/11/2023",
+      "montlyIncome": 1000.0,
+      "email": "bruno7@brunoxavier.com.br"
+    },
+    {
+      "id": 8,
+      "name": "Bruno Xavier 8",
+      "documentNumber": "21520868804",
+      "birthDate": "29/11/1981",
+      "registrationDate": "29/11/2023",
+      "montlyIncome": 1000.0,
+      "email": "bruno8@brunoxavier.com.br"
+    },
+    {
+      "id": 9,
+      "name": "Bruno Xavier 9",
+      "documentNumber": "21520868804",
+      "birthDate": "29/11/1981",
+      "registrationDate": "29/11/2023",
+      "montlyIncome": 1000.0,
+      "email": "bruno9@brunoxavier.com.br"
+    },
+    {
+      "id": 10,
+      "name": "Bruno Xavier 10",
+      "documentNumber": "21520868804",
+      "birthDate": "29/11/1981",
+      "registrationDate": "29/11/2023",
+      "montlyIncome": 1000.0,
+      "email": "bruno10@brunoxavier.com.br"
+    },
+    {
+      "id": 11,
+      "name": "Bruno Xavier 11",
+      "documentNumber": "21520868804",
+      "birthDate": "29/11/1981",
+      "registrationDate": "29/11/2023",
+      "montlyIncome": 1000.0,
+      "email": "bruno11@brunoxavier.com.br"
+    },
+    {
+      "id": 12,
+      "name": "Bruno Xavier 12",
+      "documentNumber": "21520868804",
+      "birthDate": "29/11/1981",
+      "registrationDate": "29/11/2023",
+      "montlyIncome": 1000.0,
+      "email": "bruno12@brunoxavier.com.br"
+    },
+    {
+      "id": 13,
+      "name": "Bruno Xavier 13",
+      "documentNumber": "21520868804",
+      "birthDate": "29/11/1981",
+      "registrationDate": "29/11/2023",
+      "montlyIncome": 1000.0,
+      "email": "bruno13@brunoxavier.com.br"
+    }
+  ]
+}

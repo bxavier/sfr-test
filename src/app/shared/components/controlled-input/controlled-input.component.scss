@@ -1,0 +1,29 @@
+@import '_variables';
+@import '_functions';
+
+.custom-input {
+  border: toRem(1) solid $color-neutral-medium;
+  border-radius: toRem($input-border-radius);
+  margin-bottom: toRem(18);
+  label {
+    display: block;
+    font-size: toRem(10);
+    font-weight: 700;
+    color: $color-brand-primary-medium;
+  }
+
+  input {
+    border: none;
+    padding: toRem(3) 0;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.warning {
+  color: $color-feedback-danger-medium;
+  margin-top: toRem(-15);
+}
