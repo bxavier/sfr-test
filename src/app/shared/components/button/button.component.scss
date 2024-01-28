@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use 'variables' as *;
 
 .custom-button {
@@ -8,19 +9,19 @@
   border-radius: toRem($button-border-radius);
   color: white;
   cursor: pointer;
-  background-color: $color-brand-primary-dark;
+  background-color: map.get($colors, 'brand-primary-dark');
   transition: background-color 300ms linear;
   &:hover {
-    background-color: $color-brand-primary-light;
+    background-color: map.get($colors, 'brand-primary-light');
     transition: background-color 300ms linear;
   }
   &:disabled,
   &[disabled] {
-    background-color: $color-neutral-lightest;
-    color: $color-neutral-medium;
+    background-color: map.get($colors, 'neutral-lightest');
+    color: map.get($colors, 'neutral-medium');
     cursor: not-allowed;
   }
   &:active {
-    background-color: $color-brand-primary-darkest;
+    background-color: map.get($colors, 'brand-primary-darkest');
   }
 }

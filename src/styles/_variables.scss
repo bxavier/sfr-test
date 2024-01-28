@@ -1,53 +1,55 @@
 // Primary color
-$color-brand-primary-darkest: #002c37;
-$color-brand-primary-dark: #0a4a5b;
-$color-brand-primary-medium: #00586f;
-$color-brand-primary-light: #11728b;
-$color-brand-primary-lightest: #7fabb7;
+$colors: (
+  'brand-primary-darkest': #002c37,
+  'brand-primary-dark': #0a4a5b,
+  'brand-primary-medium': #00586f,
+  'brand-primary-light': #11728b,
+  'brand-primary-lightest': #7fabb7,
 
-// Secondary color
-$color-brand-secondary-darkest: #7a6019;
-$color-brand-secondary-dark: #c49a28;
-$color-brand-secondary-medium: #f5c132;
-$color-brand-secondary-light: #f8d36f;
-$color-brand-secondary-lightest: #fbe6ad;
+  // Secondary color
+  'brand-secondary-darkest': #7a6019,
+  'brand-secondary-dark': #c49a28,
+  'brand-secondary-medium': #f5c132,
+  'brand-secondary-light': #f8d36f,
+  'brand-secondary-lightest': #fbe6ad,
 
-// Neutral
-$color-neutral-darkest: #1a1a1a;
-$color-neutral-dark: #4f4f4f;
-$color-neutral-medium: #9e9e9e;
-$color-neutral-light: #d8d8d8;
-$color-neutral-lightest: #ededed;
-$color-neutral-white: #ffffff;
+  // Neutral
+  'neutral-darkest': #1a1a1a,
+  'neutral-dark': #4f4f4f,
+  'neutral-medium': #9e9e9e,
+  'neutral-light': #d8d8d8,
+  'neutral-lightest': #ededed,
+  'neutral-white': #ffffff,
 
-// Feedback
-// Success
-$color-feedback-success-darkest: #225230;
-$color-feedback-success-dark: #337b47;
-$color-feedback-success-medium: #44a45f;
-$color-feedback-success-light: #8fc89f;
-$color-feedback-success-lightest: #daeddf;
+  // Feedback
+  // Success
+  'feedback-success-darkest': #225230,
+  'feedback-success-dark': #337b47,
+  'feedback-success-medium': #44a45f,
+  'feedback-success-light': #8fc89f,
+  'feedback-success-lightest': #daeddf,
 
-// Warning
-$color-feedback-warning-darkest: #736a11;
-$color-feedback-warning-dark: #ad9f1a;
-$color-feedback-warning-medium: #e6d422;
-$color-feedback-warning-light: #f0e57a;
-$color-feedback-warning-lightest: #faf6d3;
+  // Warning
+  'feedback-warning-darkest': #736a11,
+  'feedback-warning-dark': #ad9f1a,
+  'feedback-warning-medium': #e6d422,
+  'feedback-warning-light': #f0e57a,
+  'feedback-warning-lightest': #faf6d3,
 
-// Danger
-$color-feedback-danger-darkest: #730c1f;
-$color-feedback-danger-dark: #ad112f;
-$color-feedback-danger-medium: #e6173e;
-$color-feedback-danger-light: #f0748b;
-$color-feedback-danger-lightest: #fad1d8;
+  // Danger
+  'feedback-danger-darkest': #730c1f,
+  'feedback-danger-dark': #ad112f,
+  'feedback-danger-medium': #e6173e,
+  'feedback-danger-light': #f0748b,
+  'feedback-danger-lightest': #fad1d8,
 
-// Info
-$color-feedback-info-darkest: #1e536b;
-$color-feedback-info-dark: #2d7da1;
-$color-feedback-info-medium: #3ca6d6;
-$color-feedback-info-light: #8acae6;
-$color-feedback-info-lightest: #d8edf7;
+  // Info
+  'feedback-info-darkest': #1e536b,
+  'feedback-info-dark': #2d7da1,
+  'feedback-info-medium': #3ca6d6,
+  'feedback-info-light': #8acae6,
+  'feedback-info-lightest': #d8edf7,
+);
 
 // Gradients
 $color-linear-gradient-primary: linear-gradient(90deg, #053542 0%, #00586f 100%);

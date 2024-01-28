@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "json-server": "npx json-server --watch db.json"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +21,7 @@
     "@angular/platform-browser-dynamic": "^17.1.0",
     "@angular/router": "^17.1.0",
     "@fontsource/montserrat": "^5.0.16",
+    "json-server": "^1.0.0-alpha.23",
     "ngx-mask": "^17.0.4",
     "normalize.css": "^8.0.1",
     "rxjs": "~7.8.0",
