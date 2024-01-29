@@ -8,11 +8,12 @@ import {
   NG_VALUE_ACCESSOR,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { NgxMaskDirective } from 'ngx-mask';
 
 @Component({
   selector: 'app-input',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, NgxMaskDirective],
   templateUrl: './controlled-input.component.html',
   styleUrl: './controlled-input.component.scss',
   providers: [
@@ -30,6 +31,8 @@ export class ControlledInputComponent implements ControlValueAccessor {
   @Input() placeholder: string = '';
   @Input() type?: 'text' | 'number' | 'email' | 'password' = 'text';
   @Input() fieldName: string = 'input';
+  @Input() mask: string = '';
+  @Input() thousandSeparator: string = '';
 
   public value: string = '';
   public changed: (value: string) => void = () => {};

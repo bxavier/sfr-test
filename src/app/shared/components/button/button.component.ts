@@ -10,7 +10,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class ButtonComponent {
   @Input() label: string = 'FullWidth';
   @Input() color: string = 'primary';
-  @Input() type: string = 'button';
+  @Input() type: 'button' | 'submit' | 'reset' = 'button';
   @Input() disabled: boolean = false;
   @Output() clickAction = new EventEmitter<void>();
 

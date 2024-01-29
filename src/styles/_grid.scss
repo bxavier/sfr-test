@@ -5,6 +5,14 @@ html {
   font-size: $base-size;
 }
 
+.d-flex {
+  display: flex;
+}
+
+.d-block {
+  display: block;
+}
+
 .flex-wrapper {
   display: flex;
   flex-direction: column;

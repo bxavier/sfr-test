@@ -1,5 +1,6 @@
 @use 'sass:map';
-@use 'variables' as *;
+@import '_variables';
+@import '_functions';
 
 .custom-button {
   font-size: toRem(14);

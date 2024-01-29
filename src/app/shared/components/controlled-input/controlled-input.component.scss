@@ -23,6 +23,22 @@
       outline: none;
     }
   }
+
+  &.disabled {
+    background-color: map.get($colors, 'neutral-lightest');
+    label {
+      color: map.get($colors, 'neutral-medium');
+    }
+    input {
+      background-color: map.get($colors, 'neutral-lightest');
+      color: map.get($colors, 'neutral-medium');
+      cursor: not-allowed;
+    }
+  }
+
+  &.error {
+    border-color: map.get($colors, 'feedback-danger-medium');
+  }
 }
 
 .warning {
