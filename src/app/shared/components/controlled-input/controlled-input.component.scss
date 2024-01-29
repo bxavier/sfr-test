@@ -1,15 +1,16 @@
+@use 'sass:map';
 @import '_variables';
 @import '_functions';
 
 .custom-input {
-  border: toRem(1) solid $color-neutral-medium;
+  border: toRem(1) solid map.get($colors, 'neutral-medium');
   border-radius: toRem($input-border-radius);
   margin-bottom: toRem(18);
   label {
     display: block;
     font-size: toRem(10);
     font-weight: 700;
-    color: $color-brand-primary-medium;
+    color: map.get($colors, 'brand-primary-medium');
   }
 
   input {
@@ -25,6 +26,6 @@
 }
 
 .warning {
-  color: $color-feedback-danger-medium;
+  color: map.get($colors, 'feedback-danger-medium');
   margin-top: toRem(-15);
 }

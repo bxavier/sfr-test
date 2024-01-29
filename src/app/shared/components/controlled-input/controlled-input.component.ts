@@ -1,6 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, Input, forwardRef } from '@angular/core';
+import {
+  ControlValueAccessor,
+  FormControl,
+  FormGroup,
+  FormsModule,
+  NG_VALUE_ACCESSOR,
+  ReactiveFormsModule,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-input',
@@ -8,21 +15,49 @@ import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angu
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './controlled-input.component.html',
   styleUrl: './controlled-input.component.scss',
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => ControlledInputComponent),
+      multi: true,
+    },
+  ],
 })
-export class ControlledInputComponent {
+export class ControlledInputComponent implements ControlValueAccessor {
+  @Input() parentForm: FormGroup = new FormGroup({});
+  @Input() disabled: boolean = false;
   @Input() label: string = '';
-  @Input() type: string = 'text';
-  @Input() name: string = 'input';
-  @Output() valueChange = new EventEmitter<string>();
+  @Input() placeholder: string = '';
+  @Input() type?: 'text' | 'number' | 'email' | 'password' = 'text';
+  @Input() fieldName: string = 'input';
 
-  control: FormControl = new FormControl('', Validators.required);
+  public value: string = '';
+  public changed: (value: string) => void = () => {};
+  public touched: () => void = () => {};
+  public isDisabled: boolean = false;
 
-  get value(): string {
-    return this.control.value;
+  get formField(): FormControl {
+    return this.parentForm?.get(this.fieldName) as FormControl;
   }
 
-  set value(val: string) {
-    this.control.setValue(val);
-    this.valueChange.emit(val);
+  writeValue(value: any): void {
+    this.value = value;
+  }
+
+  registerOnChange(fn: any): void {
+    this.changed = fn;
+  }
+
+  public onChange(event: any): void {
+    const value: string = (<HTMLInputElement>event.target).value;
+    this.changed(value);
+  }
+
+  registerOnTouched(fn: any): void {
+    this.touched = fn;
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.isDisabled = isDisabled;
   }
 }

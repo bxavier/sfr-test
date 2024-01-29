@@ -1,3 +1,11 @@
 <div class="col-12">
   <h2 class="typography heading-07 color-brand-primary-darkest">INSERIR CLIENTE</h2>
+
+  <div class="col-8" [formGroup]="form">
+    <app-input class="primary" label="Name" fieldName="name" [parentForm]="form" formControlName="name" />
+  </div>
+
+  <div class="col-12 p-4">
+    {{ form.value | json }}
+  </div>
 </div>
