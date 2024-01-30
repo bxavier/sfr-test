@@ -2,16 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ButtonComponent } from '../../shared/components/button/button.component';
 import { ControlledInputComponent } from '../../shared/components/controlled-input/controlled-input.component';
-
-interface Item {
-  id: number;
-  name: string;
-  documentNumber: string;
-  birthDate: string | Date;
-  registrationDate: string | Date;
-  montlyIncome: number;
-  email: string;
-}
+import { IClient } from '../../models/client.model';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +12,7 @@ interface Item {
   imports: [CommonModule, ButtonComponent, ControlledInputComponent],
 })
 export class HomeComponent {
-  items: Item[] = [
+  items: IClient[] = [
     {
       id: 1,
       name: 'Bruno 1',

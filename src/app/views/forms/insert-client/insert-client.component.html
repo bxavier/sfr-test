@@ -1,65 +1,67 @@
 <div class="col col-12" [formGroup]="form">
   <h2 class="typography heading-07 color-brand-primary-darkest">INSERIR CLIENTE</h2>
 
-  <div class="row mb-4">
-    <div class="col col-8 pr-3">
-      <app-input label="Name" fieldName="name" [parentForm]="form" formControlName="name" />
-    </div>
-
-    <div class="col col-4">
-      <app-input
-        label="CPF"
-        fieldName="documentNumber"
-        mask="000.000.000-00"
-        [parentForm]="form"
-        formControlName="documentNumber" />
-    </div>
-  </div>
-  <div class="row mb-4">
-    <div class="col col-3 pr-3">
-      <app-input
-        label="Data de nascimento"
-        fieldName="birthDate"
-        mask="00/00/0000"
-        [parentForm]="form"
-        formControlName="birthDate" />
-    </div>
-
-    <div class="col col-3 pr-3">
-      <app-input
-        label="Renda mensal"
-        fieldName="montlyIncome"
-        mask="separator.2"
-        thousandSeparator="."
-        decimalMarker=","
-        [parentForm]="form"
-        formControlName="montlyIncome" />
-    </div>
-
-    <div class="col col-6" [formGroup]="form">
-      <app-input label="E-mail" fieldName="email" [parentForm]="form" formControlName="email" />
-    </div>
-  </div>
-  <div class="row mb-4">
-    <div class="col col-3 pr-3" [formGroup]="form">
-      <app-input
-        [disabled]="true"
-        label="Data de registro"
-        fieldName="registrationDate"
-        [parentForm]="form"
-        formControlName="registrationDate" />
-    </div>
-  </div>
-
   <div class="row">
-    <div class="col col-12">
-      <div class="d-flex justify-content-end">
-        <app-button class="primary" label="Inserir" type="submit" />
+    <div class="col col-12 m-5">
+      <div class="row mb-4">
+        <div class="col col-8 pr-3">
+          <app-input label="Name" fieldName="name" [parentForm]="form" formControlName="name" />
+        </div>
+
+        <div class="col col-4">
+          <app-input
+            label="CPF"
+            fieldName="documentNumber"
+            mask="000.000.000-00"
+            [parentForm]="form"
+            formControlName="documentNumber" />
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col col-3 pr-3">
+          <app-input
+            label="Data de nascimento"
+            fieldName="birthDate"
+            mask="00/00/0000"
+            [parentForm]="form"
+            formControlName="birthDate" />
+        </div>
+
+        <div class="col col-3 pr-3">
+          <app-input
+            label="Renda mensal"
+            fieldName="montlyIncome"
+            mask="separator.2"
+            thousandSeparator="."
+            decimalMarker=","
+            [parentForm]="form"
+            formControlName="montlyIncome" />
+        </div>
+
+        <div class="col col-6" [formGroup]="form">
+          <app-input label="E-mail" fieldName="email" [parentForm]="form" formControlName="email" />
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="col col-3 pr-3" [formGroup]="form">
+          <app-input
+            label="Data de registro"
+            fieldName="registrationDate"
+            [parentForm]="form"
+            formControlName="registrationDate" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col col-12">
+          <div class="d-flex justify-content-end">
+            <app-button class="primary" label="Inserir" type="submit" (clickAction)="onSubmit()" />
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
   <div class="row">
-    {{ form.value | json }}
+    {{ form.getRawValue() | json }}
   </div>
 </div>

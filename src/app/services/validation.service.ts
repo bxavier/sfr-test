@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AbstractControl, FormControl } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 @Injectable()
 export class ValidationService {
-  // Name validation
   static nameValidator(control: FormControl) {
     if (control.value) {
       const matches = control.value.match(/^([\w]{3,})+\s+([\w\s]{2,})+$/i);
@@ -13,13 +12,13 @@ export class ValidationService {
     }
   }
 
-  static cpfValidator(control: AbstractControl) {
+  static cpfValidator(control: FormControl) {
     const cpf = control.value.replace(/[^\d]+/g, '');
     if (cpf) {
       let numbers, digits, sum, i, result, equalDigits;
       equalDigits = 1;
       if (cpf.length < 11) {
-        return null;
+        return { invalidCpf: true };
       }
       console.log(cpf);
 
@@ -62,7 +61,7 @@ export class ValidationService {
     return null;
   }
 
-  static ageValidator(controle: AbstractControl) {
+  static ageValidator(controle: FormControl) {
     const birth = controle.value;
     const [day, month, year] = birth.split('/');
     const today = new Date();
@@ -74,6 +73,6 @@ export class ValidationService {
     if (today.getTime() - birthDate.getTime() >= eighteen && today.getTime() - birthDate.getTime() <= sixty)
       return null;
 
-    return { menorDeIdade: true };
+    return { invalidAge: true };
   }
 }

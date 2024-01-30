@@ -28,5 +28,7 @@
 </div>
 
 <div *ngIf="formField.invalid && formField.touched" class="warning typography">
-  <p class="paragraph-04 m-0 p-0 pl-3">{{ errorMessage ? errorMessage : 'O campo possui erros.' }}</p>
+  <p class="paragraph-04 m-0 p-0 pl-3">
+    {{ getErrorMessages() }}
+  </p>
 </div>

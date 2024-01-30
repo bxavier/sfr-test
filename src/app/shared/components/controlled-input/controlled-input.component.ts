@@ -26,7 +26,6 @@ import { NgxMaskDirective } from 'ngx-mask';
 })
 export class ControlledInputComponent implements ControlValueAccessor {
   @Input() parentForm: FormGroup = new FormGroup({});
-  @Input() disabled: boolean = false;
   @Input() label: string = '';
   @Input() placeholder: string = '';
   @Input() type?: 'text' | 'number' | 'email' | 'password' = 'text';
@@ -34,7 +33,6 @@ export class ControlledInputComponent implements ControlValueAccessor {
   @Input() mask: string | null = null;
   @Input() thousandSeparator: string = '';
   @Input() decimalMarker: '.' | ',' = ',';
-  @Input() errorMessage?: string = undefined;
 
   public value: string = '';
   public changed: (value: string) => void = () => {};
@@ -64,5 +62,39 @@ export class ControlledInputComponent implements ControlValueAccessor {
 
   setDisabledState(isDisabled: boolean): void {
     this.isDisabled = isDisabled;
+  }
+
+  // Should create a new component for the error message anso it can be better.
+  getErrorMessages() {
+    const errors: string[] = [];
+    if (this.formField?.errors) {
+      Object.keys(this.formField.errors).forEach((error: string) => {
+        switch (error) {
+          case 'required':
+            errors.push('Campo obrigatório.');
+            break;
+          case 'email':
+            errors.push('E-mail inválido.');
+            break;
+          case 'invalidCpf':
+            errors.push('Número de CPF inválido.');
+            break;
+          case 'invalidAge':
+            errors.push('Idade inválida.');
+            break;
+          case 'invalidName':
+            errors.push('Nome e/ou sobrenome inválido.');
+            break;
+          default:
+            errors.push('O campo contém erros.');
+        }
+      });
+    }
+    let errorReturn = '';
+    errors.forEach(error => {
+      errorReturn += error + ' ';
+    });
+
+    return errorReturn;
   }
 }
