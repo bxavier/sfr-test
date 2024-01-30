@@ -4,6 +4,7 @@
   <label class="m-0 p-0" [htmlFor]="fieldName">{{ label }}</label>
 
   <input
+    [disabled]="isDisabled"
     *ngIf="!mask"
     [type]="type"
     [name]="fieldName"
@@ -14,6 +15,7 @@
     [placeholder]="placeholder" />
 
   <input
+    [disabled]="isDisabled"
     *ngIf="mask"
     [type]="type"
     [name]="fieldName"

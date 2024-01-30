@@ -25,6 +25,10 @@
   }
 
   &.disabled {
+    cursor: not-allowed;
+    & * {
+      cursor: not-allowed;
+    }
     background-color: map.get($colors, 'neutral-lightest');
     label {
       color: map.get($colors, 'neutral-medium');
@@ -32,7 +36,6 @@
     input {
       background-color: map.get($colors, 'neutral-lightest');
       color: map.get($colors, 'neutral-medium');
-      cursor: not-allowed;
     }
   }
 

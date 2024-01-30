@@ -15,7 +15,15 @@ export class DataService {
     return this.http.post<IClient>(this.api, object);
   }
 
+  getClientById(id: number): Observable<IClient> {
+    return this.http.get<IClient>(this.api, { params: { id } });
+  }
+
   getAllClients(): Observable<IClient[]> {
     return this.http.get<IClient[]>(this.api);
+  }
+
+  updateClient(object: IClient): Observable<IClient> {
+    return this.http.put<IClient>(`${this.api}/${object.id}`, object);
   }
 }

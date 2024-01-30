@@ -61,6 +61,7 @@ export class ControlledInputComponent implements ControlValueAccessor {
   }
 
   setDisabledState(isDisabled: boolean): void {
+    console.log('isDisabled', isDisabled);
     this.isDisabled = isDisabled;
   }
 
