@@ -1,12 +1,12 @@
-<div class="col col-12">
+<div class="col col-12" [formGroup]="form">
   <h2 class="typography heading-07 color-brand-primary-darkest">INSERIR CLIENTE</h2>
 
   <div class="row mb-4">
-    <div class="col col-8 pr-3" [formGroup]="form">
+    <div class="col col-8 pr-3">
       <app-input label="Name" fieldName="name" [parentForm]="form" formControlName="name" />
     </div>
 
-    <div class="col col-4" [formGroup]="form">
+    <div class="col col-4">
       <app-input
         label="CPF"
         fieldName="documentNumber"
@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="row mb-4">
-    <div class="col col-3 pr-3" [formGroup]="form">
+    <div class="col col-3 pr-3">
       <app-input
         label="Data de nascimento"
         fieldName="birthDate"
@@ -25,12 +25,13 @@
         formControlName="birthDate" />
     </div>
 
-    <div class="col col-3 pr-3" [formGroup]="form">
+    <div class="col col-3 pr-3">
       <app-input
         label="Renda mensal"
         fieldName="montlyIncome"
         mask="separator.2"
         thousandSeparator="."
+        decimalMarker=","
         [parentForm]="form"
         formControlName="montlyIncome" />
     </div>
@@ -56,5 +57,9 @@
         <app-button class="primary" label="Inserir" type="submit" />
       </div>
     </div>
+  </div>
+
+  <div class="row">
+    {{ form.value | json }}
   </div>
 </div>

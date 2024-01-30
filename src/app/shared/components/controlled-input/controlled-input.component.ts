@@ -31,8 +31,10 @@ export class ControlledInputComponent implements ControlValueAccessor {
   @Input() placeholder: string = '';
   @Input() type?: 'text' | 'number' | 'email' | 'password' = 'text';
   @Input() fieldName: string = 'input';
-  @Input() mask: string = '';
+  @Input() mask: string | null = null;
   @Input() thousandSeparator: string = '';
+  @Input() decimalMarker: '.' | ',' = ',';
+  @Input() errorMessage?: string = undefined;
 
   public value: string = '';
   public changed: (value: string) => void = () => {};

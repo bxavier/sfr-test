@@ -1,9 +1,20 @@
 <div
   class="form-group custom-input pt-2 pb-1 pl-3 pr-3"
-  [ngClass]="[disabled ? 'disabled' : '', formField.invalid && formField.touched ? 'error' : '']">
+  [ngClass]="[isDisabled ? 'disabled' : '', formField.invalid && formField.touched ? 'error' : '']">
   <label class="m-0 p-0" [htmlFor]="fieldName">{{ label }}</label>
 
   <input
+    *ngIf="!mask"
+    [type]="type"
+    [name]="fieldName"
+    [value]="value"
+    (input)="onChange($event)"
+    (blur)="touched()"
+    id="controled-input"
+    [placeholder]="placeholder" />
+
+  <input
+    *ngIf="mask"
     [type]="type"
     [name]="fieldName"
     [value]="value"
@@ -13,9 +24,9 @@
     [placeholder]="placeholder"
     [mask]="mask"
     [thousandSeparator]="thousandSeparator"
-    [disabled]="disabled" />
+    [decimalMarker]="decimalMarker" />
 </div>
 
 <div *ngIf="formField.invalid && formField.touched" class="warning typography">
-  <p class="paragraph-04 m-0 p-0 pl-3">Campo obrigatório.</p>
+  <p class="paragraph-04 m-0 p-0 pl-3">{{ errorMessage ? errorMessage : 'O campo possui erros.' }}</p>
 </div>

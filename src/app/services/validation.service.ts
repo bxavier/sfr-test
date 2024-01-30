@@ -61,4 +61,19 @@ export class ValidationService {
     }
     return null;
   }
+
+  static ageValidator(controle: AbstractControl) {
+    const birth = controle.value;
+    const [day, month, year] = birth.split('/');
+    const today = new Date();
+    const birthDate = new Date(year, month, day, 0, 0, 0);
+
+    const eighteen = 1000 * 60 * 60 * 24 * 365 * 18;
+    const sixty = 1000 * 60 * 60 * 24 * 365 * 60;
+
+    if (today.getTime() - birthDate.getTime() >= eighteen && today.getTime() - birthDate.getTime() <= sixty)
+      return null;
+
+    return { menorDeIdade: true };
+  }
 }
