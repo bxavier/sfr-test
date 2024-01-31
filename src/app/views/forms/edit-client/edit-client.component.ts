@@ -5,7 +5,7 @@ import { ValidationService } from '../../../services/validation.service';
 import { ControlledInputComponent } from '../../../shared/components/controlled-input/controlled-input.component';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-client',
@@ -30,7 +30,8 @@ export class EditClientComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private ds: DataService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -70,7 +71,8 @@ export class EditClientComponent implements OnInit {
 
     this.ds.updateClient(this.form.getRawValue()).subscribe({
       next: response => {
-        this.getClient(response.id);
+        console.log(response);
+        this.router.navigateByUrl('/clients/list');
       },
       error: error => {
         console.log(error);

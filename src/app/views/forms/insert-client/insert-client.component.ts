@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { ValidationService } from '../../../services/validation.service';
 import { DataService } from '../../../services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-insert-client',
@@ -26,7 +27,8 @@ export class InsertClientComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private ds: DataService
+    private ds: DataService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -37,15 +39,6 @@ export class InsertClientComponent implements OnInit {
 
     const randomNumber = Math.floor(Math.random() * 1000);
     this.form.controls['id'].setValue(randomNumber);
-
-    this.ds.getClientById(19).subscribe({
-      next: post => {
-        console.log(post);
-      },
-      error: error => {
-        console.log(error);
-      },
-    });
   }
 
   onSubmit() {
@@ -58,6 +51,7 @@ export class InsertClientComponent implements OnInit {
     this.ds.postClient(this.form.getRawValue()).subscribe({
       next: client => {
         console.log(client);
+        this.router.navigateByUrl('/clients/list');
       },
       error: error => {
         console.log(error);

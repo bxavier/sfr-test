@@ -64,7 +64,7 @@ export class ClientListComponent implements OnInit {
   }
 
   editClient(id: number) {
-    this.router.navigateByUrl('/edit-client/' + id);
+    this.router.navigateByUrl('/clients/edit/' + id);
   }
 
   paginate(page: number) {
