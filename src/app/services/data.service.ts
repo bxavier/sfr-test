@@ -26,4 +26,8 @@ export class DataService {
   updateClient(object: IClient): Observable<IClient> {
     return this.http.put<IClient>(`${this.api}/${object.id}`, object);
   }
+
+  deleteClient(id: number): Observable<IClient> {
+    return this.http.delete<IClient>(`${this.api}/${id}`);
+  }
 }

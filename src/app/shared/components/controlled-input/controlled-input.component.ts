@@ -29,7 +29,7 @@ export class ControlledInputComponent implements ControlValueAccessor {
   @Input() label: string = '';
   @Input() placeholder: string = '';
   @Input() type?: 'text' | 'number' | 'email' | 'password' = 'text';
-  @Input() fieldName: string = 'input';
+  @Input() fieldName: string = '';
   @Input() mask: string | null = null;
   @Input() thousandSeparator: string = '';
   @Input() decimalMarker: '.' | ',' = ',';

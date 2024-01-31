@@ -1,21 +1,21 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './views/home/home.component';
+import { ClientListComponent } from './views/client-list/client-list.component';
 import { InsertClientComponent } from './views/forms/insert-client/insert-client.component';
 import { EditClientComponent } from './views/forms/edit-client/edit-client.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  {
-    path: 'home',
-    component: HomeComponent,
-  },
+  { path: '', redirectTo: 'clients', pathMatch: 'full' },
   {
     path: 'clients',
     children: [
       {
         path: '',
-        redirectTo: 'insert',
+        redirectTo: 'list',
         pathMatch: 'full',
+      },
+      {
+        path: 'list',
+        component: ClientListComponent,
       },
       {
         path: 'insert',
@@ -25,11 +25,7 @@ export const routes: Routes = [
         path: 'edit/:id',
         component: EditClientComponent,
       },
-      // {
-      //   path: 'list',
-      //   component: ListClientComponent,
-      // },
     ],
   },
-  { path: '**', redirectTo: 'home' },
+  { path: '**', redirectTo: 'list' },
 ];

@@ -1,6 +1,6 @@
 <div
   class="form-group custom-input pt-2 pb-1 pl-3 pr-3"
-  [ngClass]="[isDisabled ? 'disabled' : '', formField.invalid && formField.touched ? 'error' : '']">
+  [ngClass]="[isDisabled ? 'disabled' : '', formField && formField?.invalid && formField?.touched ? 'error' : '']">
   <label class="m-0 p-0" [htmlFor]="fieldName">{{ label }}</label>
 
   <input
