@@ -23,6 +23,30 @@
         padding-right: toRem(25);
       }
     }
+    div {
+      cursor: pointer;
+      &::after {
+        content: '▲';
+        margin-left: toRem(2);
+        opacity: 0;
+      }
+    }
+    .active-order-by {
+      &.asc {
+        &::after {
+          opacity: 1;
+          content: '▲';
+          margin-left: toRem(2);
+        }
+      }
+      &.desc {
+        &::after {
+          opacity: 1;
+          content: '▼';
+          margin-left: toRem(2);
+        }
+      }
+    }
   }
   tbody {
     tr {

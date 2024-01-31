@@ -5,25 +5,45 @@ import { ControlledInputComponent } from '../../shared/components/controlled-inp
 import { IClient } from '../../models/client.model';
 import { DataService } from '../../services/data.service';
 import { Router } from '@angular/router';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-client-list',
   standalone: true,
   templateUrl: './client-list.component.html',
   styleUrl: './client-list.component.scss',
-  imports: [CommonModule, ButtonComponent, ControlledInputComponent],
+  imports: [CommonModule, ButtonComponent, ControlledInputComponent, ReactiveFormsModule],
 })
 export class ClientListComponent implements OnInit {
   allClients: IClient[] = [];
-  filteredClients: IClient[] = [];
+  visibleClients: IClient[] = [];
+
+  private _filteredClients: IClient[] = [];
+  set filteredClients(value: IClient[]) {
+    console.log(value, 'filteredClients value');
+    this._filteredClients = value;
+    this.buildPagination();
+    this.visibleClients = value.slice((this.currentPage - 1) * 4, this.perPage);
+  }
+  get filteredClients(): IClient[] {
+    return this._filteredClients;
+  }
 
   currentPage: number = 1;
   pages: number[] = [];
   perPage: number = 5;
 
+  selectedOderBy: string = '';
+  selectedOderByDirection: string = 'asc';
+
+  form = this.fb.group({
+    filter: [''],
+  });
+
   constructor(
     private ds: DataService,
-    private router: Router
+    private router: Router,
+    private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -33,22 +53,30 @@ export class ClientListComponent implements OnInit {
   getClients() {
     this.ds.getAllClients().subscribe({
       next: response => {
-        this.pages = [];
-        for (let i = 1; i <= Math.ceil(response.length / this.perPage); i++) {
-          this.pages.push(i);
-        }
-
-        this.filteredClients = response.slice(0, this.perPage);
         this.allClients = response;
-
-        console.log(this.filteredClients, 'filteredClients');
-        console.log(this.allClients, 'allClients');
-        console.log(this.pages, 'pages');
+        this.filteredClients = response;
+        this.selectedOderBy = '';
+        this.oderBy('id');
       },
       error: error => {
         console.log(error);
       },
     });
+  }
+
+  buildPagination() {
+    console.log(this.filteredClients, 'filteredClients');
+    this.pages = [];
+    for (let i = 1; i <= Math.ceil(this.filteredClients.length / this.perPage); i++) {
+      this.pages.push(i);
+    }
+  }
+
+  changePage(page: number) {
+    this.currentPage = page;
+    const start = (page - 1) * this.perPage;
+    const end = start + this.perPage;
+    this.visibleClients = this.filteredClients.slice(start, end);
   }
 
   deleteClient(id: number) {
@@ -67,10 +95,53 @@ export class ClientListComponent implements OnInit {
     this.router.navigateByUrl('/clients/edit/' + id);
   }
 
-  paginate(page: number) {
-    this.currentPage = page;
-    const start = (page - 1) * this.perPage;
-    const end = start + this.perPage;
-    this.filteredClients = this.allClients.slice(start, end);
+  filterCLients() {
+    const filter = this.form.controls['filter'].value;
+    if (filter === '') {
+      this.filteredClients = this.allClients;
+      return;
+    }
+
+    console.log(filter);
+    const filteredByName = this.allClients.filter(client => {
+      return client.name.toLowerCase().includes(filter.toLowerCase());
+    });
+    const filteredByDocument = this.allClients.filter(client => {
+      return client.documentNumber.includes(filter);
+    });
+    const filteredByBirthDate = this.allClients.filter(client => {
+      return client.birthDate.includes(filter);
+    });
+    this.filteredClients = [...filteredByName, ...filteredByDocument, ...filteredByBirthDate];
+  }
+
+  oderBy(field: string) {
+    if (this.selectedOderBy === field) {
+      this.selectedOderByDirection = this.selectedOderByDirection === 'asc' ? 'desc' : 'asc';
+      this.filteredClients = this.filteredClients.reverse();
+      return;
+    }
+
+    this.selectedOderByDirection = 'asc';
+    this.selectedOderBy = field;
+
+    this.filteredClients = this.filteredClients.sort((a, b) => {
+      if (a[field] > b[field]) {
+        return 1;
+      }
+      if (a[field] < b[field]) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+
+  orderByClass(field: string) {
+    console.log(this.selectedOderByDirection, field, 'orderByClass');
+
+    if (this.selectedOderBy === field) {
+      return `${this.selectedOderByDirection} active-order-by`;
+    }
+    return '';
   }
 }
