@@ -8,13 +8,13 @@ import { DataService } from '../../../services/data.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-insert-client',
+  selector: 'app-new-client',
   standalone: true,
-  templateUrl: './insert-client.component.html',
-  styleUrl: './insert-client.component.scss',
+  templateUrl: './new-client.component.html',
+  styleUrl: './new-client.component.scss',
   imports: [CommonModule, ReactiveFormsModule, ControlledInputComponent, ButtonComponent],
 })
-export class InsertClientComponent implements OnInit {
+export class NewClientComponent implements OnInit {
   form = this.fb.group({
     id: [0],
     name: ['', [Validators.required, ValidationService.nameValidator]],

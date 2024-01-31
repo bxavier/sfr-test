@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { ClientListComponent } from './views/client-list/client-list.component';
-import { InsertClientComponent } from './views/forms/insert-client/insert-client.component';
+import { NewClientComponent } from './views/forms/new-client/new-client.component';
 import { EditClientComponent } from './views/forms/edit-client/edit-client.component';
 
 export const routes: Routes = [
@@ -18,8 +18,8 @@ export const routes: Routes = [
         component: ClientListComponent,
       },
       {
-        path: 'insert',
-        component: InsertClientComponent,
+        path: 'new',
+        component: NewClientComponent,
       },
       {
         path: 'edit/:id',

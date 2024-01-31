@@ -95,6 +95,10 @@ export class ClientListComponent implements OnInit {
     this.router.navigateByUrl('/clients/edit/' + id);
   }
 
+  newClient() {
+    this.router.navigateByUrl('/clients/new');
+  }
+
   filterCLients() {
     const filter = this.form.controls['filter'].value;
     if (filter === '') {
