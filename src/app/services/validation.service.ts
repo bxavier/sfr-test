@@ -5,7 +5,9 @@ import { FormControl } from '@angular/forms';
 export class ValidationService {
   static nameValidator(control: FormControl) {
     if (control.value) {
-      const matches = control.value.match(/^([\w]{3,})+\s+([\w\s]{2,})+$/i);
+      const matches = control.value.match(
+        /^([\[A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff]{3,})+\s+([\[A-Za-z\u00C0-\u00D6\u00D8-\u00f6\u00f8-\u00ff\s]{2,})+$/i
+      );
       return matches ? null : { invalidName: true };
     } else {
       return null;
